@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>战争雷霆 · 导弹规避战术 3D 仿真</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app"></div>
+
+<!-- ===================== HUD ===================== -->
+<div id="hud">
+  <div id="hudLeft" class="hud-panel">
+    <div class="hud-title">被锁定飞机</div>
+    <div class="hud-row"><span>马赫</span><b id="hMach">--</b></div>
+    <div class="hud-row"><span>速度 km/h</span><b id="hSpeed">--</b></div>
+    <div class="hud-row"><span>高度 m</span><b id="hAlt">--</b></div>
+    <div class="hud-row"><span>过载 G</span><b id="hG">--</b></div>
+    <div class="hud-row"><span>SEP m/s</span><b id="hSep">--</b></div>
+    <div class="hud-row"><span>坡度 °</span><b id="hBank">--</b></div>
+    <div class="hud-row"><span>俯仰 °</span><b id="hPitch">--</b></div>
+  </div>
+  <div id="hudRight" class="hud-panel">
+    <div class="hud-title">来袭导弹</div>
+    <div class="hud-row"><span>弹目距离 km</span><b id="hRange">--</b></div>
+    <div class="hud-row"><span>接近速度 m/s</span><b id="hClosing">--</b></div>
+    <div class="hud-row"><span>导弹马赫</span><b id="hMMach">--</b></div>
+    <div class="hud-row"><span>导弹过载 G</span><b id="hMG">--</b></div>
+    <div class="hud-row"><span>导弹AoA °</span><b id="hMAoa">--</b></div>
+    <div class="hud-row"><span>导弹高度 m</span><b id="hMAlt">--</b></div>
+    <div class="hud-row"><span>导弹飞程 km</span><b id="hMDist">--</b></div>
+    <div class="hud-row"><span>预计遭遇 s</span><b id="hTgo">--</b></div>
+    <div class="hud-row"><span>NEZ/DEZ</span><b id="hDez">--</b></div>
+  </div>
+
+  <canvas id="rwr" width="340" height="340"></canvas>
+  <canvas id="ncurve" width="330" height="165"></canvas>
+  <div id="mBox"></div>
+  <div id="eBox"></div>
+
+  <div id="help">
+    S/↑ 拉杆（+G）　W/↓ 压杆（-G）　A/← 左滚　D/→ 右滚　SHIFT/CTRL 油门±（SEP）　
+    C 视角　P 暂停　空格 发射导弹（对抗:打敌机 / 单向:拦截来袭导弹）　R 重置　自由视角下鼠标拖拽旋转、滚轮缩放
+  </div>
+
+  <div id="banner" class="banner hidden"></div>
+</div>
+
+<!-- ===================== 参数面板 ===================== -->
+<aside id="panel">
+  <h1>导弹规避战术仿真</h1>
+  <p class="sub">War Thunder 风格 · 简化动力学 · 实时操控</p>
+
+  <section>
+    <h2>▶ 交战控制</h2>
+    <div class="btn-row">
+      <button id="btnLaunch" class="primary">重置 (R)</button>
+      <button id="btnPause">暂停 (P)</button>
+    </div>
+    <div class="btn-row">
+      <button id="btnCam">视角：追尾 (C)</button>
+      <span class="lbl">时间加速</span>
+      <button data-warp="1" class="warp-btn active">×1</button>
+      <button data-warp="2" class="warp-btn">×2</button>
+      <button data-warp="4" class="warp-btn">×4</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>⚔ 对抗模式</h2>
+    <label class="row"><span>模式</span>
+      <select id="selMode">
+        <option value="single">单向（来袭导弹）</option>
+        <option value="duel">对抗模式（双机空战）</option>
+      </select>
+    </label>
+    <div class="grid2">
+      <label>我方导弹
+        <select id="selMyMissile">
+          <option value="custom">自定义（当前高级参数）</option>
+        </select>
+      </label>
+    </div>
+    <label class="inline"><input type="checkbox" id="chkIntercept"> 允许拦截对方导弹（F 切换目标）</label>
+    <div id="duelOnly">
+    <div class="grid2">
+      <label>敌方导弹
+        <select id="selEnemyMissile"></select>
+      </label>
+      <label>敌机初速Ma <input type="number" id="nmEnemyMach" min="0.5" max="3" step="0.1" value="1.2"></label>
+      <label>敌机高度km <input type="number" id="nmEnemyAlt" min="0.5" max="20" step="1" value="5"></label>
+      <label>敌方发射间隔s <input type="number" id="nmEnemyInterval" min="1" max="60" step="1" value="8"></label>
+      <label>初始距离km <input type="number" id="nmDuelDist" min="2" max="50" step="1" value="25"></label>
+    </div>
+    <label class="row"><span>敌方主动策略</span>
+      <select id="selEnemyOffense">
+        <option value="straight">直飞</option>
+        <option value="toward">朝向玩家飞行</option>
+        <option value="keepDist">转向敌机·保持15km</option>
+        <option value="keepDist10" selected>转向敌机·保持10km</option>
+      </select>
+    </label>
+    <label class="row"><span>敌方规避策略</span>
+      <select id="selEnemyEvasion">
+        <option value="">无</option>
+        <option value="steadyTurn">最大G定常盘旋</option>
+        <option value="tail">置尾</option>
+        <option value="tailLevel">置尾平飞</option>
+        <option value="perp">垂直导弹速度矢量</option>
+        <option value="dez" selected>DEZ动能规避</option>
+      </select>
+    </label>
+    <label class="inline"><input type="checkbox" id="chkInvMe"> 我方无敌</label>
+    <label class="inline"><input type="checkbox" id="chkInvEnemy"> 敌方无敌</label>
+    <div class="hud-row"><span>命中/被命中/拦截</span><b id="hDuelScore">0 / 0 / 0</b></div>
+    <div class="hud-row"><span>敌机</span><b id="hEnemyStat">--</b></div>
+    </div>
+    <p class="hint">对抗模式：空格 = 发射我方导弹，R = 重新开始。命中/被命中实时计数；勾选无敌后被命中只计数不结算。</p>
+  </section>
+
+  <section>
+    <h2>🖥 显示选项</h2>
+    <label class="inline"><input type="checkbox" id="chkTri" checked> 红色三角标记</label><br>
+    <label class="inline"><input type="checkbox" id="chkMBox" checked> 导弹信息框（关闭则只显示在上方）</label><br>
+    <label class="inline"><input type="checkbox" id="chkLos" checked> 红色引导线</label><br>
+    <label class="inline"><input type="checkbox" id="chkNez"> NEZ/DEZ 刻度（滑行段生效）</label><br>
+    <label class="inline"><input type="checkbox" id="chkNChart" checked> 过载-马赫曲线</label>
+    <label class="inline"><input type="checkbox" id="chkSound" checked> 音效（发射/爆炸/告警音）</label>
+  </section>
+
+  <section>
+    <h2>🎯 规避战术</h2>
+    <label class="row"><span>战术</span>
+      <select id="selTactic"></select>
+    </label>
+    <p class="hint">「手动驾驶」用键盘；其余战术由自动驾驶仪执行同样的拉杆/滚转指令，可用于对比测试。</p>
+  </section>
+
+  <section>
+    <h2>🚀 导弹来袭参数</h2>
+    <label class="row" id="secScenario"><span>场景预设</span>
+      <select id="selScenario">
+        <option value="">自定义</option>
+        <option value="bvr_far">远距离BVR 50km·10km·M1.6·迎头·AIM-120D</option>
+        <option value="bvr_mid" selected>中距离BVR 25km·6km·M1.5·迎头·R-77-1</option>
+        <option value="wvr_head">近距离迎头 10km·3km·M1.2·迎头·MICA-EM</option>
+        <option value="offaxis_same">近距离离轴（同向）10km·3km·M1.0·侧向·偏角-60°·PL-12A</option>
+        <option value="offaxis_opp">近距离离轴（反向）10km·3km·M1.0·侧向·偏角+60°·PL-12A</option>
+        <option value="wvr_tail">近距离尾追 8km·1km·M1.3·尾追·R-27ER</option>
+      </select>
+    </label>
+    <label class="row"><span>导弹预设</span>
+      <select id="selPreset">
+        <option value="aim9l">AIM-9L 响尾蛇（近距格斗弹）</option>
+        <option value="pl8">PL-8（近距格斗弹）</option>
+        <option value="r60">R-60（近距格斗弹）</option>
+        <option value="aim120a">AIM-120A（中距主动雷达弹）</option>
+      </select>
+    </label>
+
+    <div class="slider-row" id="rowSalvo">
+      <span>连发数量</span>
+      <input type="number" id="nmSalvo" min="1" max="8" step="1" value="1"><i>枚</i>
+      <span style="width:auto">间隔</span>
+      <input type="number" id="nmInterval" min="0.5" max="30" step="0.5" value="3"><i>s</i>
+    </div>
+    <div class="slider-row" id="rowDist">
+      <span>来袭距离</span>
+      <input type="range" id="slDist" min="0.5" max="40" step="0.5" value="8">
+      <input type="number" id="nmDist" min="0.5" max="40" step="0.5" value="8"><i>km</i>
+    </div>
+    <div class="slider-row" id="rowYaw">
+      <span>初速偏角</span>
+      <input type="range" id="slLaunchYaw" min="-90" max="90" step="5" value="0">
+      <input type="number" id="nmLaunchYaw" min="-90" max="90" step="5" value="0"><i>°</i>
+    </div>
+    <div class="slider-row" id="rowMach">
+      <span>导弹初速</span>
+      <input type="range" id="slLaunchMach" min="0.8" max="3" step="0.05" value="1.2">
+      <input type="number" id="nmLaunchMach" min="0.8" max="3" step="0.05" value="1.2"><i>Ma</i>
+    </div>
+    <div class="slider-row" id="rowMAlt">
+      <span>导弹高度</span>
+      <input type="range" id="slMAlt" min="0.2" max="15" step="0.1" value="5">
+      <input type="number" id="nmMAlt" min="0.2" max="15" step="0.1" value="5"><i>km</i>
+    </div>
+    <div class="slider-row" id="rowAspect">
+      <span>来袭方位</span>
+      <input type="range" id="slAspect" min="0" max="180" step="5" value="0">
+      <input type="number" id="nmAspect" min="0" max="180" step="5" value="0"><i>°</i>
+    </div>
+    <div class="btn-row">
+      <button data-aspect="0">迎头</button>
+      <button data-aspect="90">正侧向</button>
+      <button data-aspect="180">尾追</button>
+      <label class="inline"><span>发动机模型</span>
+        <select id="selEngine">
+          <option value="dynamic">推进/阻力（半经验）</option>
+          <option value="const">恒速（纯运动学）</option>
+        </select>
+      </label>
+      <label class="inline"><span>导弹模型</span>
+        <select id="selModel">
+          <option value="aero">细化气动（AoA/诱导阻力/舵面限制）</option>
+          <option value="base">基础（质点+过载直转）</option>
+        </select>
+      </label>
+    </div>
+
+    <details>
+      <summary>高级：弹体 / 制导 / 发动机参数</summary>
+      <div class="grid2">
+        <label>质量 kg <input type="number" id="nmMass" step="1" value="84.46"></label>
+        <label>弹径 m <input type="number" id="nmCaliber" step="0.001" value="0.127"></label>
+        <label>CxK 阻力标度 <input type="number" id="nmCxK" step="0.1" value="3.4"></label>
+        <label>引信半径 m <input type="number" id="nmFuse" step="1" value="5"></label>
+        <label>助推时间 s <input type="number" id="nmBoostT" step="0.1" value="5.3"></label>
+        <label>助推推力 N <input type="number" id="nmBoostThrust" step="100" value="10800"></label>
+        <label>助推燃料 kg <input type="number" id="nmBoostFuel" step="0.1" value="27.4"></label>
+        <label>巡航时间 s <input type="number" id="nmSusT" step="0.1" value="0"></label>
+        <label>巡航推力 N <input type="number" id="nmSusThrust" step="100" value="0"></label>
+        <label>巡航燃料 kg <input type="number" id="nmSusFuel" step="0.1" value="0"></label>
+        <label>最大过载 G <input type="number" id="nmNmaxM" step="1" value="30"></label>
+        <label>PN 导航系数 <input type="number" id="nmPn" step="0.1" value="4"></label>
+        <label>导引头速率 °/s <input type="number" id="nmSeekRate" step="1" value="22"></label>
+        <label>寿命 s <input type="number" id="nmLife" step="1" value="60"></label>
+        <label>离架延迟 s <input type="number" id="nmTimeOut" min="0" max="5" step="0.05" value="0"></label>
+        <label>爬升角 ° <input type="number" id="nmLoftAng" step="1" value="0"></label>
+      </div>
+      <label class="inline"><input type="checkbox" id="chkLoft"> 中段爬升（中距弹）</label>
+    </details>
+  </section>
+
+  <section>
+    <h2>✈ 被锁定飞机参数</h2>
+    <div class="grid2">
+      <label>速度 (Ma) <input type="number" id="nmMach" min="0.5" max="2" step="0.05" value="1"></label>
+      <label>最大法向过载 G <input type="number" id="nmNpos" min="1" max="12" step="0.5" value="10"></label>
+      <label>最大负过载 G <input type="number" id="nmNneg" min="-6" max="0" step="0.5" value="-4"></label>
+      <label>滚转速率 °/s <input type="number" id="nmRoll" min="30" max="360" step="10" value="180"></label>
+    </div>
+    <div class="slider-row">
+      <span>飞机高度</span>
+      <input type="range" id="slTAlt" min="0.2" max="15" step="0.1" value="5">
+      <input type="number" id="nmTAlt" min="0.2" max="15" step="0.1" value="5"><i>km</i>
+    </div>
+    <label class="row"><span>飞机模型</span>
+      <select id="selACModel">
+        <option value="const">恒速 1 马赫（基础）</option>
+        <option value="aero" selected>简易气动（能量/SEP）</option>
+      </select>
+    </label>
+    <div class="grid2">
+      <label>最大SEP m/s <input type="number" id="nmSepMax" step="10" value="300"></label>
+      <label>最大过载能量损失 m/s <input type="number" id="nmGLoss" step="10" value="-200"></label>
+      <label>最大表速 km/h <input type="number" id="nmMaxEas" step="50" value="1550"></label>
+    </div>
+    <p class="hint">恒速模型：速度恒定（默认 1 马赫）。简易气动：默认满油门（SEP = 最大值），
+    SHIFT/CTRL = 油门增/减 SEP；
+    爬升用动能换高度、俯冲用高度换速度；实时 SEP = 油门 SEP + 机动能量损失
+    （随过载线性，最大过载时取设定值，默认 -200 m/s，无下限）。</p>
+  </section>
+
+  <section id="secBatch">
+    <h2>📊 战术测试</h2>
+    <div class="btn-row">
+      <label class="inline"><span>批量</span>
+        <select id="selBatchN">
+          <option value="10">×10</option>
+          <option value="20" selected>×20</option>
+          <option value="50">×50</option>
+          <option value="100">×100</option>
+        </select>
+      </label>
+      <button id="btnBatch" class="primary">开始批量打靶</button>
+      <button id="btnExport">导出 CSV</button>
+    </div>
+    <div id="batchSummary" class="hint"></div>
+    <table id="records">
+      <thead>
+        <tr><th>战术</th><th>导弹</th><th>方位</th><th>距离km</th><th>结果</th><th>脱靶m</th><th>用时s</th><th>峰值G</th></tr>
+      </thead>
+      <tbody id="recordsBody"></tbody>
+    </table>
+  </section>
+</aside>
+
+<script src="lib/three.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/missiles.js"></script>
+<script src="js/physics.js"></script>
+<script src="js/aero.js"></script>
+<script src="js/dez.js"></script>
+<script src="js/tactics.js"></script>
+<script src="js/duel.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

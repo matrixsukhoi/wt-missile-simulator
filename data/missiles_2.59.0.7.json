@@ -1,0 +1,2144 @@
+{
+  "aim9l": {
+    "key": "aim9l",
+    "source": "us_aim9l_sidewinder.blkx",
+    "name": "aim9l（datamine 2.59.0.7）",
+    "mass0": 84.46,
+    "massEnd": 57.06,
+    "caliber": 0.127,
+    "cxK": 3.4,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 5.3,
+        "thrust": 10800,
+        "massLost": 27.4
+      }
+    ],
+    "nMaxG": 30,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 22,
+    "lifeS": 60,
+    "timeOutS": 0.4,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 2.85,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.25,
+    "finAoaVerRad": 0.25,
+    "finsLatAccelG": 37.5,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.002,
+      "i": 0.0361,
+      "d": 0.0006,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl8": {
+    "key": "pl8",
+    "source": "su_pl8.blkx",
+    "name": "pl8（datamine 2.59.0.7）",
+    "mass0": 121,
+    "massEnd": 108,
+    "caliber": 0.16,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 0.785,
+        "thrust": 37675,
+        "massLost": 13
+      }
+    ],
+    "nMaxG": 40,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 20,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 3.5,
+    "minDist": 30,
+    "lengthM": 2.999,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.22,
+    "finAoaVerRad": 0.22,
+    "finsLatAccelG": 31.2,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0035,
+      "i": 0.0346,
+      "d": 0.0007,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r60": {
+    "key": "r60",
+    "source": "su_r_60.blkx",
+    "name": "r60（datamine 2.59.0.7）",
+    "mass0": 43.5,
+    "massEnd": 33.5,
+    "caliber": 0.12,
+    "cxK": 3.1,
+    "wingMult": 1.25,
+    "stages": [
+      {
+        "t": 3,
+        "thrust": 9500,
+        "massLost": 10
+      }
+    ],
+    "nMaxG": 30,
+    "pnGain": 4,
+    "fuseR": 3,
+    "seekerRateMaxDeg": 30,
+    "lifeS": 25,
+    "timeOutS": 0.35,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 2.095,
+    "finMomentArmM": 0.06,
+    "finAoaHorRad": 0.18,
+    "finAoaVerRad": 0.18,
+    "finsLatAccelG": 29.1,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0015,
+      "i": 0.0496,
+      "d": 0.0005,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim120a": {
+    "key": "aim120a",
+    "source": "us_aim_120a.blkx",
+    "name": "aim120a（datamine 2.59.0.7）",
+    "mass0": 156.4894,
+    "massEnd": 140.3415,
+    "caliber": 0.1778,
+    "cxK": 1.225,
+    "wingMult": 1.745,
+    "stages": [
+      {
+        "t": 1.4,
+        "thrust": 26687.5,
+        "massLost": 16.148
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 6,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 80,
+    "timeOutS": 0.6,
+    "loft": true,
+    "loftAngleDeg": 22,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3.66,
+    "finMomentArmM": 0.9,
+    "finAoaHorRad": 0.452936,
+    "finAoaVerRad": 0.452936,
+    "finsLatAccelG": 35,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim120d": {
+    "key": "aim120d",
+    "source": "us_aim_120d.blkx",
+    "name": "aim120d（datamine 2.59.0.7）",
+    "mass0": 162.3861,
+    "massEnd": 111.1302,
+    "caliber": 0.1778,
+    "cxK": 1.225,
+    "wingMult": 1.7,
+    "stages": [
+      {
+        "t": 7.75,
+        "thrust": 15542,
+        "massLost": 51.256
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 6,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 180,
+    "timeOutS": 0.6,
+    "loft": true,
+    "loftAngleDeg": 22,
+    "maxMach": 4.4,
+    "minDist": 30,
+    "lengthM": 3.66,
+    "finMomentArmM": 0.9,
+    "finAoaHorRad": 0.452936,
+    "finAoaVerRad": 0.452936,
+    "finsLatAccelG": 35,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl12": {
+    "key": "pl12",
+    "source": "cn_pl12.blkx",
+    "name": "pl12（datamine 2.59.0.7）",
+    "mass0": 198,
+    "massEnd": 160,
+    "caliber": 0.203,
+    "cxK": 1.325,
+    "wingMult": 1.8,
+    "stages": [
+      {
+        "t": 2.5,
+        "thrust": 34960,
+        "massLost": 38
+      }
+    ],
+    "nMaxG": 38,
+    "pnGain": 6,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 80,
+    "loft": true,
+    "loftAngleDeg": 20,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3.934,
+    "finMomentArmM": 0.5,
+    "finAoaHorRad": 0.452936,
+    "finAoaVerRad": 0.452936,
+    "finsLatAccelG": 38,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.001784,
+      "i": 0.018364,
+      "d": 0.000051,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl12a": {
+    "key": "pl12a",
+    "source": "cn_pl12a.blkx",
+    "name": "pl12a（datamine 2.59.0.7）",
+    "mass0": 214,
+    "massEnd": 176,
+    "caliber": 0.203,
+    "cxK": 1.325,
+    "wingMult": 1.8,
+    "stages": [
+      {
+        "t": 2.5,
+        "thrust": 34960,
+        "massLost": 38
+      }
+    ],
+    "nMaxG": 38,
+    "pnGain": 6,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 120,
+    "loft": true,
+    "loftAngleDeg": 20,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3.934,
+    "finMomentArmM": 0.5,
+    "finAoaHorRad": 0.452936,
+    "finAoaVerRad": 0.452936,
+    "finsLatAccelG": 38,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.001889,
+      "i": 0.019444,
+      "d": 0.000071,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r77": {
+    "key": "r77",
+    "source": "su_r_77.blkx",
+    "name": "r77（datamine 2.59.0.7）",
+    "mass0": 175,
+    "massEnd": 115,
+    "caliber": 0.2,
+    "cxK": 1.425,
+    "wingMult": 1.5,
+    "stages": [
+      {
+        "t": 6,
+        "thrust": 23000,
+        "massLost": 60
+      }
+    ],
+    "nMaxG": 50,
+    "pnGain": 6,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 90,
+    "loft": true,
+    "loftAngleDeg": 24,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3.6,
+    "finMomentArmM": 0.4,
+    "finAoaHorRad": 0.698132,
+    "finAoaVerRad": 0.698132,
+    "finsLatAccelG": 55,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.00202,
+      "i": 0.00679,
+      "d": 0.000024,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r77_1": {
+    "key": "r77_1",
+    "source": "su_r_77_1.blkx",
+    "name": "r77_1（datamine 2.59.0.7）",
+    "mass0": 190,
+    "massEnd": 119,
+    "caliber": 0.2,
+    "cxK": 1.4,
+    "wingMult": 1.5,
+    "stages": [
+      {
+        "t": 7,
+        "thrust": 23835,
+        "massLost": 71
+      }
+    ],
+    "nMaxG": 50,
+    "pnGain": 6,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 120,
+    "loft": true,
+    "loftAngleDeg": 24,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3.71,
+    "finMomentArmM": 0.4,
+    "finAoaHorRad": 0.698132,
+    "finAoaVerRad": 0.698132,
+    "finsLatAccelG": 55,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.002125,
+      "i": 0.006481,
+      "d": 0.000023,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "mica_em": {
+    "key": "mica_em",
+    "source": "fr_mica_em.blkx",
+    "name": "mica_em（datamine 2.59.0.7）",
+    "mass0": 112,
+    "massEnd": 74.2,
+    "caliber": 0.16,
+    "cxK": 1.4,
+    "wingMult": 1.65,
+    "stages": [
+      {
+        "t": 3.5,
+        "thrust": 24840,
+        "massLost": 37.8
+      }
+    ],
+    "nMaxG": 50,
+    "pnGain": 6,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 70,
+    "loft": true,
+    "loftAngleDeg": 22,
+    "maxMach": 4.5,
+    "minDist": 30,
+    "lengthM": 3.1,
+    "finMomentArmM": 0.35,
+    "finAoaHorRad": 0.567232,
+    "finAoaVerRad": 0.567232,
+    "finsLatAccelG": 60,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.001042,
+      "i": 0.013603,
+      "d": 0.000028,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "derby": {
+    "key": "derby",
+    "source": "il_derby.blkx",
+    "name": "derby（datamine 2.59.0.7）",
+    "mass0": 118,
+    "massEnd": 95,
+    "caliber": 0.16,
+    "cxK": 1.55,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2.74,
+        "thrust": 20145,
+        "massLost": 23
+      }
+    ],
+    "nMaxG": 40,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 70,
+    "loft": true,
+    "loftAngleDeg": 27.5,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3.62,
+    "finMomentArmM": 0.11,
+    "finAoaHorRad": 0.330668,
+    "finAoaVerRad": 0.330668,
+    "finsLatAccelG": 46.7469,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.0101,
+      "i": 0.0065,
+      "d": 0.00015,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim9m": {
+    "key": "aim9m",
+    "source": "us_aim9m_sidewinder.blkx",
+    "name": "aim9m（datamine 2.59.0.7）",
+    "mass0": 84.46,
+    "massEnd": 57.06,
+    "caliber": 0.127,
+    "cxK": 3.4,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 5.3,
+        "thrust": 10800,
+        "massLost": 27.4
+      }
+    ],
+    "nMaxG": 30,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 22,
+    "lifeS": 60,
+    "timeOutS": 0.4,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 2.85,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.25,
+    "finAoaVerRad": 0.25,
+    "finsLatAccelG": 37.5,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.002,
+      "i": 0.0361,
+      "d": 0.0006,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim7m": {
+    "key": "aim7m",
+    "source": "us_aim7m_sparrow.blkx",
+    "name": "aim7m（datamine 2.59.0.7）",
+    "mass0": 231.3321,
+    "massEnd": 188.4676,
+    "caliber": 0.2032,
+    "cxK": 1.4125,
+    "wingMult": 3.25,
+    "stages": [
+      {
+        "t": 4.5,
+        "thrust": 21479.88,
+        "massLost": 42.864
+      }
+    ],
+    "nMaxG": 25,
+    "pnGain": 6,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 75,
+    "loft": false,
+    "maxMach": 4,
+    "minDist": 400,
+    "lengthM": 3.6676,
+    "finMomentArmM": 0.052,
+    "finAoaHorRad": 0.16,
+    "finAoaVerRad": 0.16,
+    "finsLatAccelG": 29,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.013481,
+      "i": 0.034835,
+      "d": 0.001341,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r73": {
+    "key": "r73",
+    "source": "su_r_73.blkx",
+    "name": "r73（datamine 2.59.0.7）",
+    "mass0": 105,
+    "massEnd": 71,
+    "caliber": 0.17,
+    "cxK": 2.5,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 5.5,
+        "thrust": 13750,
+        "massLost": 34
+      }
+    ],
+    "nMaxG": 40,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 20,
+    "timeOutS": 0.15,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 2.9,
+    "finMomentArmM": 0.12,
+    "finAoaHorRad": 0.25,
+    "finAoaVerRad": 0.25,
+    "finsLatAccelG": 45,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r27r": {
+    "key": "r27r",
+    "source": "su_r_27r.blkx",
+    "name": "r27r（datamine 2.59.0.7）",
+    "mass0": 253,
+    "massEnd": 186,
+    "caliber": 0.23,
+    "cxK": 1.9,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 6,
+        "thrust": 25125,
+        "massLost": 67
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 60,
+    "loft": false,
+    "maxMach": 3.5,
+    "minDist": 30,
+    "lengthM": 4,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.32,
+    "finAoaVerRad": 0.32,
+    "finsLatAccelG": 36.96,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.0015,
+      "i": 0.0216,
+      "d": 0.0011,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r27t": {
+    "key": "r27t",
+    "source": "su_r_27t.blkx",
+    "name": "r27t（datamine 2.59.0.7）",
+    "mass0": 245.5,
+    "massEnd": 178.5,
+    "caliber": 0.23,
+    "cxK": 2.425,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 6,
+        "thrust": 25125,
+        "massLost": 67
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 30,
+    "lifeS": 60,
+    "loft": false,
+    "maxMach": 3.5,
+    "minDist": 30,
+    "lengthM": 3.7,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.32,
+    "finAoaVerRad": 0.32,
+    "finsLatAccelG": 36.96,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.006,
+      "i": 0.0311,
+      "d": 0.0013,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pyton4": {
+    "key": "pyton4",
+    "source": "il_pyton_4.blkx",
+    "name": "pyton4（datamine 2.59.0.7）",
+    "mass0": 105,
+    "massEnd": 81,
+    "caliber": 0.16,
+    "cxK": 2.65,
+    "wingMult": 1.45,
+    "stages": [
+      {
+        "t": 3,
+        "thrust": 17600,
+        "massLost": 24
+      }
+    ],
+    "nMaxG": 50,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 45,
+    "lifeS": 20,
+    "timeOutS": 0.2,
+    "loft": false,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.22,
+    "finAoaVerRad": 0.22,
+    "finsLatAccelG": 60,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0036,
+      "i": 0.0341,
+      "d": 0.0007,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aam3": {
+    "key": "aam3",
+    "source": "jp_aam3.blkx",
+    "name": "aam3（datamine 2.59.0.7）",
+    "mass0": 91,
+    "massEnd": 63.6,
+    "caliber": 0.127,
+    "cxK": 2.85,
+    "wingMult": 1.3,
+    "stages": [
+      {
+        "t": 5.2,
+        "thrust": 11952.69,
+        "massLost": 27.4
+      }
+    ],
+    "nMaxG": 40,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 30,
+    "lifeS": 45,
+    "timeOutS": 0.4,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 3.02,
+    "finMomentArmM": 0.09,
+    "finAoaHorRad": 0.278762,
+    "finAoaVerRad": 0.278762,
+    "finsLatAccelG": 37.1989,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0021,
+      "i": 0.0401,
+      "d": 0.0008,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aam4": {
+    "key": "aam4",
+    "source": "jp_aam4.blkx",
+    "name": "aam4（datamine 2.59.0.7）",
+    "mass0": 222,
+    "massEnd": 175,
+    "caliber": 0.203,
+    "cxK": 1.3,
+    "wingMult": 1.65,
+    "stages": [
+      {
+        "t": 4,
+        "thrust": 27025,
+        "massLost": 47
+      }
+    ],
+    "nMaxG": 32,
+    "pnGain": 6,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 100,
+    "loft": true,
+    "loftAngleDeg": 20,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3.667,
+    "finMomentArmM": 0.5,
+    "finAoaHorRad": 0.452936,
+    "finAoaVerRad": 0.452936,
+    "finsLatAccelG": 32,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.002169,
+      "i": 0.02284,
+      "d": 0.000072,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl5e2": {
+    "key": "pl5e2",
+    "source": "su_pl5e2.blkx",
+    "name": "pl5e2（datamine 2.59.0.7）",
+    "mass0": 83,
+    "massEnd": 58.2,
+    "caliber": 0.127,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2,
+        "thrust": 27900,
+        "massLost": 24.8
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 23,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 3,
+    "minDist": 30,
+    "lengthM": 2.892,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.22,
+    "finAoaVerRad": 0.22,
+    "finsLatAccelG": 31,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0021,
+      "i": 0.0336,
+      "d": 0.0005,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl9": {
+    "key": "pl9",
+    "source": "su_pl9.blkx",
+    "name": "pl9（datamine 2.59.0.7）",
+    "mass0": 115,
+    "massEnd": 95,
+    "caliber": 0.157,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 1.25,
+        "thrust": 35200,
+        "massLost": 20
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 30,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 3.5,
+    "minDist": 30,
+    "lengthM": 2.992,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.248,
+    "finAoaVerRad": 0.248,
+    "finsLatAccelG": 37.2052,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0021,
+      "i": 0.0376,
+      "d": 0.0006,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "skyflash": {
+    "key": "skyflash",
+    "source": "uk_skyflash_aim_7.blkx",
+    "name": "skyflash（datamine 2.59.0.7）",
+    "mass0": 195.04,
+    "massEnd": 153.49,
+    "caliber": 0.2032,
+    "cxK": 1.4125,
+    "wingMult": 3.25,
+    "stages": [
+      {
+        "t": 2.8,
+        "thrust": 31143.83,
+        "massLost": 41.55
+      }
+    ],
+    "nMaxG": 25,
+    "pnGain": 6,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 44,
+    "lifeS": 40,
+    "loft": false,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3.6676,
+    "finMomentArmM": 0.052,
+    "finAoaHorRad": 0.16,
+    "finAoaVerRad": 0.16,
+    "finsLatAccelG": 25,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.013035,
+      "i": 0.031954,
+      "d": 0.001167,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r3r": {
+    "key": "r3r",
+    "source": "su_r_3r.blkx",
+    "name": "r3r（datamine 2.59.0.7）",
+    "mass0": 75.3,
+    "massEnd": 54.8,
+    "caliber": 0.127,
+    "cxK": 3.9,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2.2,
+        "thrust": 17318,
+        "massLost": 20.5
+      }
+    ],
+    "nMaxG": 10,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 12,
+    "lifeS": 21,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 1.7,
+    "minDist": 30,
+    "lengthM": 2.83,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.11,
+    "finAoaVerRad": 0.11,
+    "finsLatAccelG": 10.7,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.0025,
+      "i": 0.0491,
+      "d": 0.0006,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r27et": {
+    "key": "r27et",
+    "source": "su_r_27et.blkx",
+    "name": "r27et（datamine 2.59.0.7）",
+    "mass0": 343,
+    "massEnd": 262.6,
+    "caliber": 0.26,
+    "cxK": 1.85,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 3.2,
+        "thrust": 55275,
+        "massLost": 80.4
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 30,
+    "lifeS": 60,
+    "loft": false,
+    "maxMach": 5.75,
+    "minDist": 30,
+    "lengthM": 4.5,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.32,
+    "finAoaVerRad": 0.32,
+    "finsLatAccelG": 36.96,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.004,
+      "i": 0.0301,
+      "d": 0.0012,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl8b": {
+    "key": "pl8b",
+    "source": "cn_pl8b.blkx",
+    "name": "pl8b（datamine 2.59.0.7）",
+    "mass0": 121,
+    "massEnd": 108,
+    "caliber": 0.16,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 0.785,
+        "thrust": 37675,
+        "massLost": 13
+      }
+    ],
+    "nMaxG": 40,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 20,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 3.5,
+    "minDist": 30,
+    "lengthM": 2.999,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.22,
+    "finAoaVerRad": 0.22,
+    "finsLatAccelG": 31.2,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0035,
+      "i": 0.0346,
+      "d": 0.0007,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r27er": {
+    "key": "r27er",
+    "source": "su_r_27er.blkx",
+    "name": "r27er（datamine 2.59.0.7）",
+    "mass0": 350,
+    "massEnd": 286,
+    "caliber": 0.26,
+    "cxK": 1.455,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 3.2,
+        "thrust": 55275,
+        "massLost": 64
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 60,
+    "loft": false,
+    "maxMach": 5.75,
+    "minDist": 30,
+    "lengthM": 4.7,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.32,
+    "finAoaVerRad": 0.32,
+    "finsLatAccelG": 36.96,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.004,
+      "i": 0.0301,
+      "d": 0.0012,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r60m": {
+    "key": "r60m",
+    "source": "su_r_60m.blkx",
+    "name": "r60m（datamine 2.59.0.7）",
+    "mass0": 44,
+    "massEnd": 34,
+    "caliber": 0.12,
+    "cxK": 3.1,
+    "wingMult": 1.25,
+    "stages": [
+      {
+        "t": 3,
+        "thrust": 9500,
+        "massLost": 10
+      }
+    ],
+    "nMaxG": 30,
+    "pnGain": 4,
+    "fuseR": 3,
+    "seekerRateMaxDeg": 30,
+    "lifeS": 25,
+    "timeOutS": 0.35,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 2.095,
+    "finMomentArmM": 0.06,
+    "finAoaHorRad": 0.18,
+    "finAoaVerRad": 0.18,
+    "finsLatAccelG": 29.1,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0015,
+      "i": 0.0496,
+      "d": 0.0005,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r13m1": {
+    "key": "r13m1",
+    "source": "su_r_13m1.blkx",
+    "name": "r13m1（datamine 2.59.0.7）",
+    "mass0": 90.6,
+    "massEnd": 60,
+    "caliber": 0.127,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2,
+        "thrust": 26000,
+        "massLost": 30.6
+      }
+    ],
+    "nMaxG": 20,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 16.5,
+    "lifeS": 60,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 2.4,
+    "minDist": 30,
+    "lengthM": 2.876,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.2,
+    "finAoaVerRad": 0.2,
+    "finsLatAccelG": 18.7,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0015,
+      "i": 0.0316,
+      "d": 0.0005,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "magic2": {
+    "key": "magic2",
+    "source": "fr_r_550_magic_2.blkx",
+    "name": "magic2（datamine 2.59.0.7）",
+    "mass0": 89,
+    "massEnd": 65.35,
+    "caliber": 0.157,
+    "cxK": 2.515,
+    "wingMult": 1.45,
+    "stages": [
+      {
+        "t": 2,
+        "thrust": 27950,
+        "massLost": 23.65
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 60,
+    "lifeS": 25,
+    "timeOutS": 0.25,
+    "loft": false,
+    "maxMach": 3,
+    "minDist": 30,
+    "lengthM": 2.748,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.356,
+    "finAoaVerRad": 0.356,
+    "finsLatAccelG": 27.3543,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0016,
+      "i": 0.0341,
+      "d": 0.0005,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim9p4": {
+    "key": "aim9p4",
+    "source": "us_aim9p4_sidewinder.blkx",
+    "name": "aim9p4（datamine 2.59.0.7）",
+    "mass0": 76.93,
+    "massEnd": 58,
+    "caliber": 0.127,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2.2,
+        "thrust": 17498.36,
+        "massLost": 18.93
+      }
+    ],
+    "nMaxG": 20,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 22,
+    "lifeS": 40,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 3.05,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.18,
+    "finAoaVerRad": 0.18,
+    "finsLatAccelG": 17.6,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0025,
+      "i": 0.0406,
+      "d": 0.0006,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pyton3": {
+    "key": "pyton3",
+    "source": "il_pyton_3.blkx",
+    "name": "pyton3（datamine 2.59.0.7）",
+    "mass0": 121,
+    "massEnd": 108,
+    "caliber": 0.16,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 0.785,
+        "thrust": 37675,
+        "massLost": 13
+      }
+    ],
+    "nMaxG": 40,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 20,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 3.5,
+    "minDist": 30,
+    "lengthM": 2.999,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.22,
+    "finAoaVerRad": 0.22,
+    "finsLatAccelG": 31.2,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0035,
+      "i": 0.0346,
+      "d": 0.0007,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl5b": {
+    "key": "pl5b",
+    "source": "su_pl5b.blkx",
+    "name": "pl5b（datamine 2.59.0.7）",
+    "mass0": 84.5,
+    "massEnd": 59.7,
+    "caliber": 0.127,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2,
+        "thrust": 27900,
+        "massLost": 24.8
+      }
+    ],
+    "nMaxG": 30,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 23,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 2.892,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.17,
+    "finAoaVerRad": 0.17,
+    "finsLatAccelG": 31,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0045,
+      "i": 0.0466,
+      "d": 0.0009,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim4g": {
+    "key": "aim4g",
+    "source": "us_aim4g_falcon.blkx",
+    "name": "aim4g（datamine 2.59.0.7）",
+    "mass0": 66.22449,
+    "massEnd": 60.32779,
+    "caliber": 0.168656,
+    "cxK": 2.025,
+    "wingMult": 1.925,
+    "stages": [
+      {
+        "t": 0.63,
+        "thrust": 19741.316,
+        "massLost": 5.897
+      }
+    ],
+    "nMaxG": 27,
+    "pnGain": 4,
+    "fuseR": 3,
+    "seekerRateMaxDeg": 12,
+    "lifeS": 22,
+    "timeOutS": 0.63,
+    "loft": false,
+    "maxMach": 3,
+    "minDist": 30,
+    "lengthM": 2.0955,
+    "finMomentArmM": 0.075,
+    "finAoaHorRad": 0.100443,
+    "finAoaVerRad": 0.100443,
+    "finsLatAccelG": 27,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0056,
+      "i": 0.0481,
+      "d": 0.00045,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r3s": {
+    "key": "r3s",
+    "source": "su_r_3s.blkx",
+    "name": "r3s（datamine 2.59.0.7）",
+    "mass0": 75.3,
+    "massEnd": 54.8,
+    "caliber": 0.127,
+    "cxK": 3.9,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2.2,
+        "thrust": 17318.18,
+        "massLost": 20.5
+      }
+    ],
+    "nMaxG": 10,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 6,
+    "lifeS": 21,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 1.7,
+    "minDist": 30,
+    "lengthM": 2.838,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.11,
+    "finAoaVerRad": 0.11,
+    "finsLatAccelG": 10.7,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0025,
+      "i": 0.0491,
+      "d": 0.0006,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim9b": {
+    "key": "aim9b",
+    "source": "us_aim9b_sidewinder.blkx",
+    "name": "aim9b（datamine 2.59.0.7）",
+    "mass0": 74.38915,
+    "massEnd": 55.79186,
+    "caliber": 0.127,
+    "cxK": 3.9,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2.2,
+        "thrust": 17498.36,
+        "massLost": 18.597
+      }
+    ],
+    "nMaxG": 10,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 11,
+    "lifeS": 20,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 1.7,
+    "minDist": 30,
+    "lengthM": 2.8321,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.11,
+    "finAoaVerRad": 0.11,
+    "finsLatAccelG": 10.4,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0005,
+      "i": 0.0531,
+      "d": 0.0007,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim9d": {
+    "key": "aim9d",
+    "source": "us_aim9d_sidewinder.blkx",
+    "name": "aim9d（datamine 2.59.0.7）",
+    "mass0": 88.45,
+    "massEnd": 55.8,
+    "caliber": 0.127,
+    "cxK": 3.4,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 5,
+        "thrust": 11000,
+        "massLost": 32.65
+      }
+    ],
+    "nMaxG": 18,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 12,
+    "lifeS": 60,
+    "timeOutS": 0.4,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 3,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.17,
+    "finAoaVerRad": 0.17,
+    "finsLatAccelG": 19.8,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0055,
+      "i": 0.0631,
+      "d": 0.0012,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim9h": {
+    "key": "aim9h",
+    "source": "us_aim9h_sidewinder.blkx",
+    "name": "aim9h（datamine 2.59.0.7）",
+    "mass0": 88.45,
+    "massEnd": 55.8,
+    "caliber": 0.127,
+    "cxK": 3.4,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 5,
+        "thrust": 11000,
+        "massLost": 32.65
+      }
+    ],
+    "nMaxG": 18,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 60,
+    "timeOutS": 0.4,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 3,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.17,
+    "finAoaVerRad": 0.17,
+    "finsLatAccelG": 19.8,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0055,
+      "i": 0.0631,
+      "d": 0.0012,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim9j": {
+    "key": "aim9j",
+    "source": "us_aim9j_sidewinder.blkx",
+    "name": "aim9j（datamine 2.59.0.7）",
+    "mass0": 76.93,
+    "massEnd": 58,
+    "caliber": 0.127,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2.2,
+        "thrust": 17498.36,
+        "massLost": 18.93
+      }
+    ],
+    "nMaxG": 20,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 16.5,
+    "lifeS": 40,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 3.05,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.18,
+    "finAoaVerRad": 0.18,
+    "finsLatAccelG": 17.6,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0025,
+      "i": 0.0406,
+      "d": 0.0006,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "magic": {
+    "key": "magic",
+    "source": "fr_r_550_magic.blkx",
+    "name": "magic（datamine 2.59.0.7）",
+    "mass0": 89,
+    "massEnd": 66,
+    "caliber": 0.157,
+    "cxK": 2.515,
+    "wingMult": 1.45,
+    "stages": [
+      {
+        "t": 2,
+        "thrust": 27000,
+        "massLost": 23
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 35,
+    "lifeS": 25,
+    "timeOutS": 0.25,
+    "loft": false,
+    "maxMach": 3,
+    "minDist": 30,
+    "lengthM": 2.748,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.356,
+    "finAoaVerRad": 0.356,
+    "finsLatAccelG": 27.3543,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0016,
+      "i": 0.0396,
+      "d": 0.0005,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "firestreak": {
+    "key": "firestreak",
+    "source": "uk_firestreak.blkx",
+    "name": "firestreak（datamine 2.59.0.7）",
+    "mass0": 136,
+    "massEnd": 96,
+    "caliber": 0.222,
+    "cxK": 3.5,
+    "wingMult": 1.3,
+    "stages": [
+      {
+        "t": 1.9,
+        "thrust": 38000,
+        "massLost": 40
+      }
+    ],
+    "nMaxG": 15,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 12,
+    "lifeS": 13,
+    "timeOutS": 0.34,
+    "loft": false,
+    "maxMach": 3.4,
+    "minDist": 30,
+    "lengthM": 3.18,
+    "finMomentArmM": 0.06,
+    "finAoaHorRad": 0.12,
+    "finAoaVerRad": 0.12,
+    "finsLatAccelG": 10.9,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.004,
+      "i": 0.0486,
+      "d": 0.0007,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "shafrir2": {
+    "key": "shafrir2",
+    "source": "il_shafrir_2.blkx",
+    "name": "shafrir2（datamine 2.59.0.7）",
+    "mass0": 90,
+    "massEnd": 63,
+    "caliber": 0.15,
+    "cxK": 3.9,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 5,
+        "thrust": 11400,
+        "massLost": 27
+      }
+    ],
+    "nMaxG": 18,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 18,
+    "lifeS": 30,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 2.1,
+    "minDist": 30,
+    "lengthM": 2.8,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.18,
+    "finAoaVerRad": 0.18,
+    "finsLatAccelG": 18.5,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0045,
+      "i": 0.0381,
+      "d": 0.0007,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl2": {
+    "key": "pl2",
+    "source": "su_pl2.blkx",
+    "name": "pl2（datamine 2.59.0.7）",
+    "mass0": 75.3,
+    "massEnd": 54.8,
+    "caliber": 0.127,
+    "cxK": 3.9,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2.2,
+        "thrust": 17318.18,
+        "massLost": 20.5
+      }
+    ],
+    "nMaxG": 10,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 6,
+    "lifeS": 21,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 1.7,
+    "minDist": 30,
+    "lengthM": 2.838,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.11,
+    "finAoaVerRad": 0.11,
+    "finsLatAccelG": 10.7,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0025,
+      "i": 0.0491,
+      "d": 0.0006,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl5c": {
+    "key": "pl5c",
+    "source": "su_pl5c.blkx",
+    "name": "pl5c（datamine 2.59.0.7）",
+    "mass0": 84.5,
+    "massEnd": 59.7,
+    "caliber": 0.127,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2,
+        "thrust": 27900,
+        "massLost": 24.8
+      }
+    ],
+    "nMaxG": 30,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 23,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 2.892,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.17,
+    "finAoaVerRad": 0.17,
+    "finsLatAccelG": 31,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0045,
+      "i": 0.0466,
+      "d": 0.0009,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl7": {
+    "key": "pl7",
+    "source": "su_pl7.blkx",
+    "name": "pl7（datamine 2.59.0.7）",
+    "mass0": 89,
+    "massEnd": 66,
+    "caliber": 0.157,
+    "cxK": 2.515,
+    "wingMult": 1.45,
+    "stages": [
+      {
+        "t": 2,
+        "thrust": 27000,
+        "massLost": 23
+      }
+    ],
+    "nMaxG": 35,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 35,
+    "lifeS": 25,
+    "timeOutS": 0.25,
+    "loft": false,
+    "maxMach": 3,
+    "minDist": 30,
+    "lengthM": 2.748,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.356,
+    "finAoaVerRad": 0.356,
+    "finsLatAccelG": 27.3543,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0016,
+      "i": 0.0396,
+      "d": 0.0005,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "pl11": {
+    "key": "pl11",
+    "source": "cn_pl11.blkx",
+    "name": "pl11（datamine 2.59.0.7）",
+    "mass0": 230,
+    "massEnd": 173,
+    "caliber": 0.2032,
+    "cxK": 1.4125,
+    "wingMult": 3.25,
+    "stages": [
+      {
+        "t": 3.5,
+        "thrust": 37500,
+        "massLost": 57
+      }
+    ],
+    "nMaxG": 25,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 12,
+    "lifeS": 45,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 5,
+    "minDist": 30,
+    "lengthM": 3.7,
+    "finMomentArmM": 0.052,
+    "finAoaHorRad": 0.16,
+    "finAoaVerRad": 0.16,
+    "finsLatAccelG": 25,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.013749,
+      "i": 0.032945,
+      "d": 0.001476,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim4f": {
+    "key": "aim4f",
+    "source": "us_aim4f_falcon.blkx",
+    "name": "aim4f（datamine 2.59.0.7）",
+    "mass0": 68.91882,
+    "massEnd": 62.84069,
+    "caliber": 0.168656,
+    "cxK": 2.025,
+    "wingMult": 1.925,
+    "stages": [
+      {
+        "t": 0.63,
+        "thrust": 19741.316,
+        "massLost": 6.078
+      }
+    ],
+    "nMaxG": 27,
+    "pnGain": 4,
+    "fuseR": 3,
+    "seekerRateMaxDeg": 12,
+    "lifeS": 22,
+    "timeOutS": 0.63,
+    "loft": false,
+    "maxMach": 3,
+    "minDist": 30,
+    "lengthM": 2.193671,
+    "finMomentArmM": 0.075,
+    "finAoaHorRad": 0.100443,
+    "finAoaVerRad": 0.100443,
+    "finsLatAccelG": 27,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.003,
+      "i": 0.0436,
+      "d": 0.0011,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim26b": {
+    "key": "aim26b",
+    "source": "us_aim_26b.blkx",
+    "name": "aim26b（datamine 2.59.0.7）",
+    "mass0": 117.3081,
+    "massEnd": 89.56635,
+    "caliber": 0.28956,
+    "cxK": 0.95,
+    "wingMult": 1.85,
+    "stages": [
+      {
+        "t": 2.09,
+        "thrust": 27422.328,
+        "massLost": 27.742
+      }
+    ],
+    "nMaxG": 28,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 12,
+    "lifeS": 30,
+    "timeOutS": 2,
+    "loft": false,
+    "maxMach": 3.55,
+    "minDist": 30,
+    "lengthM": 2.159,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.1,
+    "finAoaVerRad": 0.1,
+    "finsLatAccelG": 28,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.0031,
+      "i": 0.0736,
+      "d": 0.00035,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r60mk": {
+    "key": "r60mk",
+    "source": "su_r_60mk.blkx",
+    "name": "r60mk（datamine 2.59.0.7）",
+    "mass0": 44,
+    "massEnd": 34,
+    "caliber": 0.12,
+    "cxK": 3.1,
+    "wingMult": 1.25,
+    "stages": [
+      {
+        "t": 3,
+        "thrust": 9500,
+        "massLost": 10
+      }
+    ],
+    "nMaxG": 30,
+    "pnGain": 4,
+    "fuseR": 3,
+    "seekerRateMaxDeg": 30,
+    "lifeS": 25,
+    "timeOutS": 0.35,
+    "loft": false,
+    "maxMach": 2.5,
+    "minDist": 30,
+    "lengthM": 2.095,
+    "finMomentArmM": 0.06,
+    "finAoaHorRad": 0.18,
+    "finAoaVerRad": 0.18,
+    "finsLatAccelG": 29.1,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0015,
+      "i": 0.0496,
+      "d": 0.0005,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r13m": {
+    "key": "r13m",
+    "source": "su_r_13m.blkx",
+    "name": "r13m（datamine 2.59.0.7）",
+    "mass0": 87.7,
+    "massEnd": 60,
+    "caliber": 0.127,
+    "cxK": 3.3,
+    "wingMult": 1.4,
+    "stages": [
+      {
+        "t": 2,
+        "thrust": 26000,
+        "massLost": 27.7
+      }
+    ],
+    "nMaxG": 15,
+    "pnGain": 4,
+    "fuseR": 3.5,
+    "seekerRateMaxDeg": 12,
+    "lifeS": 60,
+    "timeOutS": 0.5,
+    "loft": false,
+    "maxMach": 2.4,
+    "minDist": 30,
+    "lengthM": 2.83,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.16,
+    "finAoaVerRad": 0.16,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.01,
+      "i": 0.005,
+      "d": 0.002,
+      "iLim": 0.5,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "fakour90": {
+    "key": "fakour90",
+    "source": "ir_fakour_90.blkx",
+    "name": "fakour90（datamine 2.59.0.7）",
+    "mass0": 637.2973,
+    "massEnd": 455.2973,
+    "caliber": 0.37,
+    "cxK": 1.05,
+    "wingMult": 1.2,
+    "stages": [
+      {
+        "t": 5,
+        "thrust": 83900,
+        "massLost": 182
+      }
+    ],
+    "nMaxG": 20,
+    "pnGain": 4,
+    "fuseR": 5,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 150,
+    "timeOutS": 1.5,
+    "loft": true,
+    "loftAngleDeg": 15,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 4.25,
+    "finMomentArmM": 0.35,
+    "finAoaHorRad": 0.244082,
+    "finAoaVerRad": 0.244082,
+    "finsLatAccelG": 25.088,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.0311,
+      "i": 0.016,
+      "d": 0.00035,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "aim7e2": {
+    "key": "aim7e2",
+    "source": "us_aim7e2_dogfight_sparrow.blkx",
+    "name": "aim7e2（datamine 2.59.0.7）",
+    "mass0": 193.7,
+    "massEnd": 154.4028,
+    "caliber": 0.2032,
+    "cxK": 1.4125,
+    "wingMult": 3.25,
+    "stages": [
+      {
+        "t": 2.8,
+        "thrust": 31143.83,
+        "massLost": 39.297
+      }
+    ],
+    "nMaxG": 25,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 12,
+    "lifeS": 40,
+    "timeOutS": 0.7,
+    "loft": false,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3.6676,
+    "finMomentArmM": 0.052,
+    "finAoaHorRad": 0.16,
+    "finAoaVerRad": 0.16,
+    "finsLatAccelG": 25,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.0025,
+      "i": 0.029,
+      "d": 0.0008,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "skyflash_dogfight": {
+    "key": "skyflash_dogfight",
+    "source": "uk_skyflash_aim_7_dogfight.blkx",
+    "name": "skyflash_dogfight（datamine 2.59.0.7）",
+    "mass0": 195.04,
+    "massEnd": 153.49,
+    "caliber": 0.2032,
+    "cxK": 1.4125,
+    "wingMult": 3.25,
+    "stages": [
+      {
+        "t": 2.8,
+        "thrust": 31143.83,
+        "massLost": 41.55
+      }
+    ],
+    "nMaxG": 25,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 44,
+    "lifeS": 40,
+    "timeOutS": 0.7,
+    "loft": false,
+    "maxMach": 4,
+    "minDist": 30,
+    "lengthM": 3.6676,
+    "finMomentArmM": 0.052,
+    "finAoaHorRad": 0.16,
+    "finAoaVerRad": 0.16,
+    "finsLatAccelG": 25,
+    "irSeeker": false,
+    "guidanceType": "radar",
+    "pid": {
+      "p": 0.0025,
+      "i": 0.029,
+      "d": 0.0008,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "redtop": {
+    "key": "redtop",
+    "source": "uk_redtop.blkx",
+    "name": "redtop（datamine 2.59.0.7）",
+    "mass0": 167.8292,
+    "massEnd": 131.9954,
+    "caliber": 0.23,
+    "cxK": 2.075,
+    "wingMult": 1.3,
+    "stages": [
+      {
+        "t": 2.5,
+        "thrust": 30500,
+        "massLost": 35.834
+      }
+    ],
+    "nMaxG": 12,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 12,
+    "lifeS": 30,
+    "loft": false,
+    "maxMach": 3.4,
+    "minDist": 30,
+    "lengthM": 3.32,
+    "finMomentArmM": 0.1,
+    "finAoaHorRad": 0.142232,
+    "finAoaVerRad": 0.142232,
+    "finsLatAccelG": 10.2787,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0041,
+      "i": 0.0386,
+      "d": 0.0007,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  },
+  "r24t": {
+    "key": "r24t",
+    "source": "su_r_24t.blkx",
+    "name": "r24t（datamine 2.59.0.7）",
+    "mass0": 237,
+    "massEnd": 162,
+    "caliber": 0.2,
+    "cxK": 2.1,
+    "wingMult": 1.35,
+    "stages": [
+      {
+        "t": 3,
+        "thrust": 50000,
+        "massLost": 75
+      }
+    ],
+    "nMaxG": 24,
+    "pnGain": 4,
+    "fuseR": 4,
+    "seekerRateMaxDeg": 20,
+    "lifeS": 45,
+    "loft": false,
+    "maxMach": 3.5,
+    "minDist": 30,
+    "lengthM": 4.194,
+    "finMomentArmM": 0.133,
+    "finAoaHorRad": 0.28,
+    "finAoaVerRad": 0.28,
+    "finsLatAccelG": 21.9,
+    "irSeeker": true,
+    "guidanceType": "optical",
+    "pid": {
+      "p": 0.0025,
+      "i": 0.0236,
+      "d": 0.0006,
+      "iLim": 1,
+      "baseIndSpeedKmh": 1800
+    }
+  }
+}

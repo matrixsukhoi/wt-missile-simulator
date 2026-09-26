@@ -1,0 +1,200 @@
+/* 战争雷霆 · 导弹规避战术 3D 仿真 — 界面样式 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%; overflow: hidden;
+  background: #0a0f14;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  color: #d6e2dc;
+}
+
+#app { position: absolute; inset: 0; }
+#app canvas { display: block; }
+
+/* ===================== HUD ===================== */
+#hud { position: absolute; inset: 0; pointer-events: none; }
+
+.hud-panel {
+  position: absolute; top: 14px;
+  min-width: 172px;
+  padding: 8px 12px;
+  background: rgba(6, 18, 12, 0.55);
+  border: 1px solid rgba(47, 158, 95, 0.45);
+  border-radius: 6px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 13px;
+}
+#hudLeft { left: 14px; }
+#hudRight { left: 210px; }
+
+.hud-title {
+  color: #58d68d; font-weight: bold; letter-spacing: 2px;
+  border-bottom: 1px solid rgba(47, 158, 95, 0.4);
+  margin-bottom: 5px; padding-bottom: 3px;
+}
+.hud-row { display: flex; justify-content: space-between; line-height: 1.55; }
+.hud-row span { color: #9ab8a8; }
+.hud-row b { color: #d8ffe6; font-weight: 700; }
+
+#rwr {
+  position: absolute; left: 14px; bottom: 52px;
+  border-radius: 50%;
+}
+
+/* 过载-马赫曲线（界面右侧上方） */
+#ncurve {
+  position: absolute; top: 14px; right: 366px;
+  background: rgba(6, 18, 12, 0.55);
+  border: 1px solid rgba(47, 158, 95, 0.4);
+  border-radius: 8px;
+}
+
+/* 导弹浮动信息框（跟随导弹屏幕位置） */
+#mBox {
+  position: absolute; display: none; pointer-events: none;
+  padding: 6px 10px;
+  background: rgba(8, 20, 14, 0.82);
+  border: 1px solid rgba(255, 80, 64, 0.6);
+  border-radius: 6px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 12px; line-height: 1.55;
+  color: #d8ffe6; white-space: nowrap; z-index: 5;
+}
+#mBox b { color: #ffb3ab; }
+
+/* 敌机状态浮动标签（对抗模式，绿框，导弹标签同款布局） */
+#eBox {
+  position: absolute; display: none; pointer-events: none;
+  padding: 6px 10px;
+  background: rgba(8, 20, 14, 0.82);
+  border: 1px solid rgba(88, 214, 141, 0.7);
+  border-radius: 6px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 12px; line-height: 1.55;
+  color: #d8ffe6; white-space: nowrap; z-index: 5;
+}
+#eBox b { color: #7bed9f; }
+
+#help {
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  padding: 6px 16px;
+  background: rgba(6, 18, 12, 0.5);
+  border: 1px solid rgba(47, 158, 95, 0.3);
+  border-radius: 14px;
+  font-size: 12px; color: #9ab8a8; white-space: nowrap;
+}
+
+/* ===================== 结果横幅 ===================== */
+.banner {
+  position: absolute; top: 34%; left: 42%; transform: translate(-50%, -50%);
+  min-width: 340px; text-align: center;
+  padding: 18px 30px; border-radius: 10px;
+  background: rgba(8, 16, 12, 0.82);
+  pointer-events: none;
+}
+.banner.hidden { display: none; }
+.banner.hit { border: 2px solid #ff5252; box-shadow: 0 0 24px rgba(255, 82, 82, 0.5); }
+.banner.miss { border: 2px solid #58d68d; box-shadow: 0 0 24px rgba(88, 214, 141, 0.4); }
+.banner.toast { border: 2px solid #f4d03f; }
+.b-title { font-size: 34px; font-weight: 800; letter-spacing: 6px; color: #fff; }
+.banner.hit .b-title { color: #ff6b6b; }
+.banner.miss .b-title { color: #7bed9f; }
+.b-sub { margin-top: 8px; font-size: 14px; color: #cfe3d8; }
+.b-hint { margin-top: 10px; font-size: 12px; color: #8fae9d; }
+
+/* ===================== 参数面板 ===================== */
+#panel {
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: 352px;
+  padding: 14px 16px 40px;
+  background: rgba(10, 18, 24, 0.88);
+  border-left: 1px solid rgba(88, 214, 141, 0.25);
+  overflow-y: auto;
+  font-size: 13px;
+}
+#panel::-webkit-scrollbar { width: 8px; }
+#panel::-webkit-scrollbar-thumb { background: #2f5e47; border-radius: 4px; }
+
+#panel h1 { font-size: 18px; color: #7bed9f; letter-spacing: 1px; }
+#panel .sub { font-size: 11px; color: #7f9aa8; margin: 2px 0 8px; }
+
+#panel section {
+  margin-bottom: 14px; padding: 10px 12px;
+  background: rgba(20, 34, 42, 0.6);
+  border: 1px solid rgba(88, 214, 141, 0.15);
+  border-radius: 8px;
+}
+#panel h2 {
+  font-size: 13px; color: #58d68d; letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.row > span { width: 84px; color: #9ab8a8; flex: none; font-size: 12px; }
+.row select, .row input { flex: 1; min-width: 0; width: 100%; }
+
+.btn-row { display: flex; align-items: center; gap: 6px; margin: 6px 0; flex-wrap: wrap; }
+.btn-row .lbl { color: #9ab8a8; font-size: 12px; }
+
+.slider-row {
+  display: flex; align-items: center; gap: 6px; margin: 7px 0;
+}
+.slider-row > span { width: 66px; color: #9ab8a8; flex: none; font-size: 12px; }
+.slider-row input[type=range] { flex: 1; min-width: 0; }
+.slider-row input[type=number] { width: 58px; }
+.slider-row i { color: #6f8d7d; font-style: normal; font-size: 11px; width: 24px; }
+
+.grid2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; margin: 6px 0;
+}
+.grid2 label {
+  display: flex; flex-direction: column; font-size: 11px; color: #9ab8a8;
+  min-width: 0;
+}
+.grid2 input, .grid2 select {
+  margin-top: 2px; width: 100%; min-width: 0;   /* 撑满列宽、禁止溢出 */
+}
+
+input, select, button {
+  background: #16242c; color: #d6e2dc;
+  border: 1px solid #33556a; border-radius: 4px;
+  padding: 4px 7px; font-size: 12px;
+  font-family: inherit;
+  outline: none;
+  max-width: 100%;
+}
+select { text-overflow: ellipsis; }   /* 长选项文本截断，不撑破容器 */
+input:focus, select:focus { border-color: #58d68d; }
+
+button {
+  cursor: pointer; transition: background 0.15s, border-color 0.15s;
+}
+button:hover { background: #1f3542; border-color: #58d68d; }
+button.primary { background: #1c5e3a; border-color: #2f9e5f; font-weight: 700; }
+button.primary:hover { background: #247a4c; }
+button.warp-btn.active { background: #2f6e8e; border-color: #58c8e8; }
+
+.inline {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; color: #9ab8a8;
+  margin: 3px 12px 3px 0;   /* 复选项之间留白 */
+}
+
+.hint { font-size: 11px; color: #7f9aa8; line-height: 1.5; margin-top: 5px; }
+
+details { margin-top: 8px; }
+details summary { cursor: pointer; color: #8ecfa8; font-size: 12px; }
+
+/* ===================== 记录表 ===================== */
+#records {
+  width: 100%; margin-top: 8px; border-collapse: collapse; font-size: 11px;
+}
+#records th, #records td {
+  border: 1px solid rgba(88, 214, 141, 0.18);
+  padding: 3px 5px; text-align: center;
+}
+#records th { background: rgba(31, 53, 66, 0.8); color: #8ecfa8; }
+#records tr.r-hit td { color: #ff8a80; }
+#records tr.r-miss td { color: #b9e6c9; }
+
+#batchSummary b { color: #ffd166; }
