@@ -3,6 +3,8 @@
 > 纯前端实时 3D 导弹攻防仿真：**双击即玩、离线可用、零依赖安装**。
 > 单向拦截 + 玩家 vs AI 对抗，63 枚真实 datamine 导弹，NEZ/DEZ 空战决策算法。
 
+🚀 **[在线演示 · 打开即玩](https://matrixsukhoi.github.io/wt-missile-simulator/)**（GitHub Pages 部署，无需安装；按任意键解锁音效）
+
 ![界面截图：对抗模式实战](ui.png)
 
 *对抗模式实战：**黄**=导弹动力段尾迹、**黑**=滑行段；**红线**=每发导弹的引导线（连其锁定目标）；
@@ -11,7 +13,8 @@
 
 ## 快速开始
 
-双击 `启动.bat`（或直接用浏览器打开 `index.html`）。
+**在线**：点击上方 [在线演示](https://matrixsukhoi.github.io/wt-missile-simulator/) 即可游玩。
+**本地**：双击 `启动.bat`（或直接用浏览器打开 `index.html`）。
 无构建、无联网、无安装 —— Three.js 已本地化在 `lib/`。
 
 ## 系统框图
