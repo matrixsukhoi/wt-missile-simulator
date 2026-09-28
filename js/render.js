@@ -138,6 +138,8 @@ window.WT = window.WT || {};
       this.camera = new THREE.PerspectiveCamera(55, 1, 0.5, 400000);
       this.camMode = 'free';       // chase | cockpit | missile | free
       this.freeCam = { theta: 0.6, phi: 1.15, radius: 90 };
+      this.missileCam = { theta: 0.8, phi: 1.15, radius: 60 };  // 导弹视角：绕弹自由环绕
+      this.cockpitLook = { yaw: 0, pitch: 0 };                  // 座舱视角：拖曳环视偏移
 
       this._buildWorld();
 
@@ -244,14 +246,29 @@ window.WT = window.WT || {};
       el.addEventListener('mousedown', (e) => { drag = true; lx = e.clientX; ly = e.clientY; });
       window.addEventListener('mouseup', () => { drag = false; });
       window.addEventListener('mousemove', (e) => {
-        if (!drag || this.camMode !== 'free') return;
-        this.freeCam.theta -= (e.clientX - lx) * 0.005;
-        this.freeCam.phi = Math.max(0.15, Math.min(1.5, this.freeCam.phi - (e.clientY - ly) * 0.005));
+        if (!drag) return;
+        const dx = e.clientX - lx, dy = e.clientY - ly;
         lx = e.clientX; ly = e.clientY;
+        if (this.camMode === 'free' || this.camMode === 'missile') {
+          /* 环绕旋转：自由视角绕我机、导弹视角绕导弹 */
+          const cam = this.camMode === 'free' ? this.freeCam : this.missileCam;
+          cam.theta -= dx * 0.005;
+          cam.phi = Math.max(0.15, Math.min(1.5, cam.phi - dy * 0.005));
+        } else if (this.camMode === 'cockpit') {
+          /* 座舱环视：拖曳改变视线方向（偏航 ±150°、俯仰 ±70°） */
+          const cl = this.cockpitLook;
+          cl.yaw = Math.max(-2.6, Math.min(2.6, cl.yaw - dx * 0.005));
+          cl.pitch = Math.max(-1.2, Math.min(1.2, cl.pitch - dy * 0.005));
+        }
       });
       el.addEventListener('wheel', (e) => {
-        if (this.camMode !== 'free') return;
-        this.freeCam.radius = Math.max(15, Math.min(3000, this.freeCam.radius * (e.deltaY > 0 ? 1.1 : 0.9)));
+        if (this.camMode === 'free') {
+          this.freeCam.radius = Math.max(15, Math.min(3000,
+            this.freeCam.radius * (e.deltaY > 0 ? 1.1 : 0.9)));
+        } else if (this.camMode === 'missile') {
+          this.missileCam.radius = Math.max(10, Math.min(3000,
+            this.missileCam.radius * (e.deltaY > 0 ? 1.1 : 0.9)));
+        }
       }, { passive: true });
     }
 
@@ -474,12 +491,22 @@ window.WT = window.WT || {};
       } else if (this.camMode === 'cockpit') {
         const eye = new THREE.Vector3(0, 1.0, -1.5).applyQuaternion(ac.quat).add(ac.pos);
         cam.position.copy(eye);
-        cam.lookAt(target.clone().addScaledVector(a.fwd, 200));
+        /* 视线 = 机体前向经（偏航, 俯仰）偏移（鼠标拖曳环视）后转世界系 */
+        const cl = this.cockpitLook;
+        const look = new THREE.Vector3(0, 0, -1)
+          .applyAxisAngle(new THREE.Vector3(0, 1, 0), cl.yaw)
+          .applyAxisAngle(new THREE.Vector3(1, 0, 0), cl.pitch)
+          .applyQuaternion(ac.quat);
+        cam.lookAt(eye.clone().addScaledVector(look, 200));
       } else if (this.camMode === 'missile' && ms) {
-        const dir = ms.vel.clone().normalize();
-        const back = ms.pos.clone().addScaledVector(dir, -40).add(new THREE.Vector3(0, 8, 0));
-        cam.position.lerp(back, 1 - Math.exp(-6 * dt));
-        cam.lookAt(target);
+        /* 导弹视角：以导弹为中心自由环绕（拖拽旋转 / 滚轮缩放），随弹平移 */
+        const mc = this.missileCam;
+        const off = new THREE.Vector3(
+          mc.radius * Math.sin(mc.phi) * Math.sin(mc.theta),
+          mc.radius * Math.cos(mc.phi),
+          mc.radius * Math.sin(mc.phi) * Math.cos(mc.theta));
+        cam.position.copy(ms.pos).add(off);
+        cam.lookAt(ms.pos);
       } else if (this.camMode === 'missile') {
         /* 无导弹时导弹视角回退追尾 */
         const back = new THREE.Vector3(0, 6, 34).applyQuaternion(ac.quat).add(ac.pos);
