@@ -128,11 +128,11 @@ window.WT = window.WT || {};
           rm > 0.5 * this.range0 && rm / Math.max(closing, 1) > 12) {
         const vh = this.vel.clone().normalize();
         /* 顶点瞄准（与 physics.js 同律）：逼近目标顶点时爬升角自动收平 */
-        const hApex = this.h0 * (1 + 0.35 * (p.loftAngleDeg / 22));
+        const hApex = this.h0 * (1 + 0.31 * (p.loftAngleDeg / 22));
         const vyNow = vh.y * this.vel.length();
         const gam = Math.asin(clamp(vh.y, -1, 1));
         const gamT = Math.min(p.loftAngleDeg * Math.PI / 180,
-          Math.max(0, 0.0003 * (hApex - this.pos.y) - 0.0008 * Math.max(vyNow, 0)));
+          Math.max(0, 0.0003 * (hApex - this.pos.y) - 0.0011 * Math.max(vyNow, 0)));
         const gamRate = clamp(0.15 * (gamT - gam), -0.25, 0.25);
         const aVert = Math.max(this.vel.length(), 120) * gamRate + G0;
         const uUp = new V3(0, 1, 0).addScaledVector(vh, -vh.y);
@@ -188,14 +188,19 @@ window.WT = window.WT || {};
         ? this.aoaVec.clone().multiplyScalar(q * S * A.kL)
         : new V3(0, 0, 0);
 
-      /* 轴向：推力 − 零升阻力 − 诱导阻力（α²） */
+      /* 轴向：零升阻力 + 诱导阻力（α²）；推力沿【弹体轴】（速度偏转迎角 α） */
       const D0 = q * Sref * p.wingMult * p.cxK * cxAt(mach);
       const Di = q * S * A.cxVsAoa * aoa * aoa;
-      const aAxial = engine === 'const' ? 0 : (this.thrust - D0 - Di) / this.mass;
+      const aDrag = engine === 'const' ? 0 : -(D0 + Di) / this.mass;
+      const nHat = aoa > 1e-6
+        ? vhat.clone().multiplyScalar(Math.cos(aoa))
+          .addScaledVector(this.aoaVec.clone().normalize(), Math.sin(aoa)).normalize()
+        : vhat;
 
       /* --- 积分 --- */
       const acc = lift.multiplyScalar(1 / this.mass)
-        .addScaledVector(vhat, aAxial)
+        .addScaledVector(nHat, engine === 'const' ? 0 : this.thrust / this.mass)
+        .addScaledVector(vhat, aDrag)
         .add(new V3(0, -G0, 0));
       this.vel.addScaledVector(acc, dt);
       this.pos.addScaledVector(this.vel, dt);

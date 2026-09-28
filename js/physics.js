@@ -242,6 +242,8 @@ window.WT = window.WT || {};
       this.brokeLock = false;      // 曾因角速率超限丢失
       this.overRateTime = 0;
       this.gLoad = 0;              // 当前法向过载（G）
+      this.aoaVec = new V3(0, 0, 0);  // 迎角矢量（方向=升力方向，模=α rad）
+      this.alphaDeg = 0;           // 当前迎角（°）
       this.travelDist = 0;         // 飞行总距离（m）
       /* 离架延迟（datamine guidanceAutopilot.timeOut）：延迟段内保持直飞 */
       this.timeOutS = params.timeOutS || 0;
@@ -317,12 +319,12 @@ window.WT = window.WT || {};
         /* 顶点瞄准：目标顶点 = 发射高度·(1 + 0.35·loftAngle/22°)，
          * 按游戏实测校准（AIM-120D 10km/M1.6 迎头发射顶点 ≤13.5km）；
          * 逼近顶点时爬升角自动收平，不再一路按标称角爬到门限 */
-        const hApex = this.h0 * (1 + 0.35 * (this.p.loftAngleDeg / 22));
+        const hApex = this.h0 * (1 + 0.31 * (this.p.loftAngleDeg / 22));
         const vyNow = vh.y * this.vel.length();
         const gam = Math.asin(clamp(vh.y, -1, 1));
         /* PD 顶点伺服：位置项给爬升角，垂直速度项提前收平（消惯性过冲） */
         const gamT = Math.min(this.p.loftAngleDeg * Math.PI / 180,
-          Math.max(0, 0.0003 * (hApex - this.pos.y) - 0.0008 * Math.max(vyNow, 0)));
+          Math.max(0, 0.0003 * (hApex - this.pos.y) - 0.0011 * Math.max(vyNow, 0)));
         const gamRate = clamp(0.15 * (gamT - gam), -0.25, 0.25);
         const aVert = Math.max(this.vel.length(), 120) * gamRate + G0;
         const uUp = new V3(0, 1, 0).addScaledVector(vh, -vh.y);
@@ -342,6 +344,19 @@ window.WT = window.WT || {};
       const aMax = this.p.nMaxG * clamp(q / 50000, 0.15, 1) * G0;
       if (aLat.length() > aMax) aLat.multiplyScalar(aMax / aLat.length());
       this.gLoad = aLat.length() / G0;    // 限幅后实际法向过载（G）
+
+      /* 弹体姿态遥测：迎角矢量 aoaVec（方向=升力方向 ⊥速度，模=α）——
+       * α = CL/k_L，CL = m·a_lat/(q·S)（与诱导阻力同一升力系数，基型/气动一致） */
+      {
+        const mEff = this.mass || this.p.mass0 || 100;
+        const SlA = (Math.PI * this.p.caliber * this.p.caliber / 4) * this.p.wingMult;
+        const kLA = this.p.cyKPerRad || 3;
+        const aoaM = clamp((mEff * aLat.length()) / Math.max(q * SlA, 1e-6) / kLA, 0, 0.5);
+        this.aoaVec = aLat.lengthSq() > 1e-9
+          ? aLat.clone().normalize().multiplyScalar(aoaM)
+          : new V3(0, 0, 0);
+        this.alphaDeg = aoaM * 180 / Math.PI;
+      }
 
       /* --- 轴向：推力 - 零升阻力 - 诱导阻力 --- */
       let aAxial = 0;
@@ -363,11 +378,19 @@ window.WT = window.WT || {};
         const nAcc = this.gLoad * G0;       // 横向加速度 m/s²
         const CL = clamp((this.mass * nAcc) / Math.max(q * Sl, 1e-6), 0, 4);
         const Di = q * Sl * CL * CL * (1 / (Math.PI * 4 * 0.8));
-        aAxial = (this.thrust - D0 - Di) / this.mass;
+        aAxial = -(D0 + Di) / this.mass;   // 阻力沿速度反向（推力改沿弹体轴，见下）
       }
 
-      /* --- 合成加速度并积分 --- */
+      /* --- 合成加速度并积分 ---
+       * 推力沿【弹体轴】：弹体轴 = 速度矢量偏转迎角 α（方向=升力方向）——
+       * 攻角下推力有侧向分量（助推转向）、轴向分量按 cosα 折减 */
+      const aoaT = this.aoaVec.length();
+      const nHat = aoaT > 1e-6
+        ? vhat.clone().multiplyScalar(Math.cos(aoaT))
+          .addScaledVector(this.aoaVec.clone().normalize(), Math.sin(aoaT)).normalize()
+        : vhat;
       const acc = aLat.clone()
+        .addScaledVector(nHat, (this.thrust || 0) / this.mass)
         .addScaledVector(vhat, aAxial)
         .add(new V3(0, -G0, 0));          // 重力
       this.vel.addScaledVector(acc, dt);

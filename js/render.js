@@ -418,9 +418,17 @@ window.WT = window.WT || {};
         slot.mesh.visible = true;
         slot.mesh.position.copy(m.pos);
         const dir = m.vel.clone().normalize();
+        /* 弹体姿态 = 速度矢量偏转迎角 α（α 方向=升力方向；直飞/未起控时 α=0） */
+        let nose = dir;
+        const av = m.aoaVec;
+        if (av && av.lengthSq() > 1e-12) {
+          const al = Math.min(av.length(), 0.6);
+          nose = dir.clone().multiplyScalar(Math.cos(al))
+            .addScaledVector(av.clone().normalize(), Math.sin(al)).normalize();
+        }
         /* 注意：Object3D.lookAt 让 +Z 指向目标（仅相机是 -Z），
-         * 而本导弹模型机头沿 -Z，故对准速度【反】方向 */
-        slot.mesh.lookAt(m.pos.clone().addScaledVector(dir, -1));
+         * 而本导弹模型机头沿 -Z，故对准姿态【反】方向 */
+        slot.mesh.lookAt(m.pos.clone().addScaledVector(nose, -1));
         const flame = slot.mesh.getObjectByName('flame');
         if (flame) flame.visible = m.thrust > 0;
         /* 尾迹按【仿真时间 30Hz】采样（旧实现按帧奇偶——高刷屏 144Hz 采样翻倍，

@@ -1,4 +1,4 @@
-﻿/* smoke-test.js — 动力学内核冒烟测试（Node 运行：node tools/smoke-test.js）
+/* smoke-test.js — 动力学内核冒烟测试（Node 运行：node tools/smoke-test.js）
  * 验证：大气/阻力表、迎头不机动目标应被命中、机动战术下可脱靶 */
 'use strict';
 const fs = require('fs');
@@ -1173,6 +1173,25 @@ console.log('== 转向侧锁定（防 ±180° 翻转） ==');
   }
   check('perp 战术：机头趋向 ⊥ 导弹速度矢量（偏差 <35°）',
     bestDev < 35, `最小偏差=${bestDev.toFixed(0)}°`);
+}
+/* 导弹姿态：迎角随机动建立（弹体轴 = 速度偏转 α；推力沿弹体轴） */
+{
+  const tgt = { pos: new THREE.Vector3(3000, 5200, 8000), vel: new THREE.Vector3(-120, 0, -120), flying: true };
+  const m1 = new P.Missile(Object.assign({}, WT.MISSILE_PRESETS.aim9l), {
+    pos: new THREE.Vector3(0, 5000, 0), vel: new THREE.Vector3(0, 0, 400), range0: 9000
+  });
+  m1._prevRel = m1.pos.clone().sub(tgt.pos);
+  let maxAoa = 0, orthoOK = true;
+  for (let i = 0; i < 300 && m1.flying; i++) {
+    m1.step(0.01, tgt, 'dynamic');
+    if (m1.aoaVec && m1.aoaVec.lengthSq() > 1e-12) {
+      maxAoa = Math.max(maxAoa, m1.alphaDeg || 0);
+      const v = m1.vel.clone().normalize();
+      if (Math.abs(v.dot(m1.aoaVec.clone().normalize())) > 0.02) orthoOK = false;
+    }
+  }
+  check('导弹姿态：机动中迎角建立且⊥速度（弹体轴≠速度矢量）',
+    maxAoa > 1 && orthoOK, `αmax=${maxAoa.toFixed(1)}° 正交=${orthoOK}`);
 }
 /* 数据契约：预设关键字段与 data/missiles_2.59.0.7.json（blkx2json 生成）一致 */
 {
